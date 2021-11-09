@@ -42,3 +42,12 @@ for (let item of menuItems) {
     welcomeText.classList.toggle('welcome__to-hide');
   };
 }
+
+const scrollUp = document.querySelector('.scroll-up');
+window.onscroll = () => {
+  if (window.pageYOffset > document.documentElement.clientHeight) {
+    scrollUp.style.display = 'block';
+  } else {
+    scrollUp.style.display = 'none';
+  }
+};

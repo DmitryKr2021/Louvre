@@ -26,3 +26,21 @@ function shuffle(arr) {
 
 arrImg = shuffle(arrImg);
 arrImg.map(item => pictureInnerContainer.append(item));
+
+/*  Picture animation (hoisting) */
+window.onload = function () {
+  arrImg.forEach((item) => {
+    item.classList.add('hoist');
+  });
+};
+
+window.addEventListener('scroll', function () {
+  arrImg.forEach((item) => {
+    if (item.getBoundingClientRect().top >= document.documentElement.clientHeight) {
+      item.classList.remove('hoist');
+    }
+    if (item.getBoundingClientRect().top <= document.documentElement.clientHeight * 0.8) {
+      item.classList.add('hoist');
+    }
+  });
+});

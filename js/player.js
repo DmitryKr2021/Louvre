@@ -215,14 +215,14 @@ document.addEventListener('keydown', event => {
     toStart();
   }
 
-  if (event.code === 'KeyF') {
+  /*if (event.code === 'KeyF') {
     videoPlay.requestFullscreen();
     if (document.fullscreenEnabled || document.mozFullscreenEnabled || document.webkitFullscreenEnabled) {
       cancelFullscreen();
     } else {
       videoPlay.requestFullscreen();
     }
-  }
+  }*/ // incorrect form for book tickets
 
   if (event.code === 'Period') {
     if (event.shiftKey) {
