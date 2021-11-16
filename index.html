@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="css/timepicker.css">
   <link rel="icon" href="favicon.ico">
   <title>museum</title>
-</head>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
 
 <body class="for_modal">
   <header class="header" id="header">
@@ -662,9 +664,37 @@
           </div>
           <!--/contact__info-->
 
-            <div class="mapLouvre">     
+            <!--div class="mapLouvre">     
               <iframe src="https://api.mapbox.com/styles/v1/dmitryvk/ckvl6emvfaoca15o2o9482nug.html?title=false&access_token=pk.eyJ1IjoiZG1pdHJ5dmsiLCJhIjoiY2t2a3NwNWQwMzl1NDJvcGczNW9qdGZibiJ9.4bhoETRMxsMifPjcallGTA&zoomwheel=false#14/48.86/2.34" title="Streets" style="border:none;"></iframe>
-            </div>
+            </div-->
+
+            <div class="mapLouvre" id='map'></div>
+    <script> 
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZG1pdHJ5dmsiLCJhIjoiY2t2a3NwNWQwMzl1NDJvcGczNW9qdGZibiJ9.4bhoETRMxsMifPjcallGTA'; 
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/dmitryvk/ckw1r1bhp4o9a14nx9murm785',
+      center: [2.335, 48.861],
+      zoom: 10.7
+    });
+
+map.on('click', (event) => {
+  const features = map.queryRenderedFeatures(event.point, {
+    layers: ['louvre'] 
+  });
+  if (!features.length) {
+    return;
+  }
+  const feature = features[0];
+  const popup = new mapboxgl.Popup({ offset: [0, -15] })
+  .setLngLat(feature.geometry.coordinates)
+  .setHTML(
+    //`<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+    `<h3>${feature.properties.title}</h3>`
+  )
+  .addTo(map);
+});
+    </script>
                           
         </div>
         <!--/contact__wrapper-->
