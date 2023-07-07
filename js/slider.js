@@ -253,7 +253,7 @@ function func(e) {
       }
       draw();
       next.onclick = changeSlideNext;
-    }, 100);
+    }, 300);
     changeSlideNumberUp(delta);
   }
 
@@ -527,7 +527,7 @@ function YTchangeSlidePrev() {
 /*************************************/
 /*******Перетаскивание****************/
 /*************************************/
-let YTposX1,
+/*let YTposX1,
   YTposX2,
   YTposInit,
   YTposFinal,
@@ -642,7 +642,7 @@ function YTswipeEnd(e) {
   } else {
     toStartPos();
   }
-}
+}*/
 
 /****************************/
 /********радиокнопки*********/

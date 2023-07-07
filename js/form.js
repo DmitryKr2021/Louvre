@@ -233,7 +233,9 @@ function toHideModal() {
   form_.classList.add('form-hide');
   show_modal = false;
 }
-
+setTimeout(() => {
+ form_.classList.add('display');
+}, 1000)
 function toShowModal() {
   styleBody.innerHTML = "body::after {display: block}";
   form_.classList.remove('form-hide');

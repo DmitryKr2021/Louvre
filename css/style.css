@@ -1755,6 +1755,9 @@ iframe {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  display: none;
+  /*Убрал плохо работающую функцию*/
 }
 
 .YTcontrol_items-box {
@@ -2245,6 +2248,11 @@ form {
   overflow-y: auto;
   padding-bottom: 20px;
   transition: 0.5s;
+  display: none;
+ }
+ 
+ .display {
+ display: block;
 }
 
 .form-hide {
